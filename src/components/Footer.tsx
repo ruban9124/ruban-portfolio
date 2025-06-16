@@ -1,13 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Code, Coffee } from 'lucide-react';
+import { Heart, Code, Coffee, Github, Linkedin, Mail, Phone, Sparkles, Layers } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  const socialLinks = [
+    { icon: Phone, href: 'tel:+917010947275', label: 'Phone', color: 'hover:text-green-500' },
+    { icon: Mail, href: 'mailto:ruban9124@gmail.com', label: 'Email', color: 'hover:text-red-500' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/ruban9124', label: 'LinkedIn', color: 'hover:text-blue-500' },
+    { icon: Github, href: 'https://github.com/ruban9124', label: 'GitHub', color: 'hover:text-purple-500' },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="py-20 bg-white dark:bg-black relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <motion.div
+          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ rotate: -360, scale: [1.2, 1, 1.2] }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-500/5 to-pink-500/5 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,22 +36,61 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
-              Ruban Karthick V
-            </h3>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Full-Stack Developer passionate about creating innovative solutions that make a difference. 
-              Always ready to take on new challenges and build amazing things.
-            </p>
-          </div>
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-sm font-medium mb-6"
+          >
+            <Layers className="w-4 h-4 mr-2" />
+            Let's Connect
+          </motion.div>
+
+          <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
+            Ruban Karthick V
+          </h3>
+
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+            Full-Stack Developer passionate about creating innovative solutions that make a difference. 
+            Always ready to take on new challenges and build amazing things.
+          </p>
 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center space-x-2 text-gray-300 mb-6"
+            className="flex flex-wrap justify-center gap-4 mb-8"
+          >
+            {socialLinks.map(({ icon: Icon, href, label, color }, index) => (
+              <motion.a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                className="group relative block"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+                
+                <div className="relative p-4 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
+                  <Icon size={24} className={`text-gray-600 dark:text-gray-300 ${color}`} />
+                </div>
+              </motion.a>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400 mb-8"
           >
             <span>Made with</span>
             <motion.div
@@ -40,36 +100,36 @@ const Footer: React.FC = () => {
               <Heart className="w-5 h-5 text-red-500 fill-current" />
             </motion.div>
             <span>using</span>
-            <Code className="w-5 h-5 text-blue-400" />
+            <Code className="w-5 h-5 text-cyan-500" />
             <span>React & TypeScript</span>
-            <Coffee className="w-5 h-5 text-yellow-600" />
+            <Coffee className="w-5 h-5 text-yellow-500" />
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="border-t border-gray-700 pt-6"
+            className="border-t border-white/10 dark:border-white/5 pt-8"
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 © {currentYear} Ruban Karthick V. All rights reserved.
               </p>
               
-              <div className="flex space-x-6 text-sm text-gray-400">
+              <div className="flex space-x-6 text-sm text-gray-600 dark:text-gray-400">
                 <motion.button
-                  whileHover={{ color: '#3B82F6' }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="hover:text-blue-400 transition-colors"
+                  className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
                 >
                   Back to Top
                 </motion.button>
                 <span>•</span>
                 <motion.a
-                  whileHover={{ color: '#8B5CF6' }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   href="mailto:ruban9124@gmail.com"
-                  className="hover:text-purple-400 transition-colors"
+                  className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
                 >
                   Say Hello
                 </motion.a>
@@ -80,11 +140,11 @@ const Footer: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
-            className="mt-6 text-center"
+            className="mt-8 text-center"
           >
-            <p className="text-xs text-gray-500">
+            <p className="text-sm text-gray-500 dark:text-gray-500">
               "Code is like humor. When you have to explain it, it's bad." - Cory House
             </p>
           </motion.div>

@@ -73,7 +73,7 @@ const Navigation: React.FC = () => {
               <Code2 className="w-6 h-6 text-white" />
             </motion.div>
             <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Ruban.dev
+              Ruban Karthick V
             </div>
           </motion.div>
 
