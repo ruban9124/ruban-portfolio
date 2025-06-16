@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, Phone, Download, Sparkles, Code, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ChevronDown, Linkedin, Mail, Phone, Download, Sparkles, Code, Zap } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [currentText, setCurrentText] = useState('');
@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   const titles = [
     'Full-Stack Developer',
     'AI Integrator',
-    'Cloud Engineer', 
+    'Cloud Engineer',
     'SaaS Architect',
     'Automation Expert'
   ];
@@ -150,7 +150,7 @@ const Hero: React.FC = () => {
             Hi, I'm{' '}
             <motion.span
               className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
-              animate={{ 
+              animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               }}
               transition={{ duration: 3, repeat: Infinity }}
@@ -167,7 +167,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <span className="mr-2 sm:mr-4">I'm a</span>
-            <motion.span 
+            <motion.span
               className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 font-bold min-w-[200px] sm:min-w-[300px] text-left"
               key={currentText}
             >
@@ -223,7 +223,7 @@ const Hero: React.FC = () => {
                 </motion.div>
               </span>
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
@@ -247,8 +247,7 @@ const Hero: React.FC = () => {
             {[
               { Icon: Phone, href: 'tel:+917010947275', label: 'Phone', color: 'hover:text-green-500' },
               { Icon: Mail, href: 'mailto:ruban9124@gmail.com', label: 'Email', color: 'hover:text-red-500' },
-              { Icon: Linkedin, href: 'https://linkedin.com/in/ruban9124', label: 'LinkedIn', color: 'hover:text-blue-500' },
-              { Icon: Github, href: 'https://github.com/ruban9124', label: 'GitHub', color: 'hover:text-purple-500' },
+              { Icon: Linkedin, href: 'https://www.linkedin.com/in/ruban9124/', label: 'LinkedIn', color: 'hover:text-blue-500' },
             ].map(({ Icon, href, label, color }, index) => (
               <motion.a
                 key={label}

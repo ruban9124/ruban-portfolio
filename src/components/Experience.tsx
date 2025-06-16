@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Award, BookOpen, Briefcase, Layers } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 
 const Experience: React.FC = () => {
   const experiences = [
@@ -62,18 +62,18 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-32 bg-gray-50 dark:bg-black relative overflow-hidden">
+    <section id="experience" className="py-20 sm:py-24 md:py-32 bg-gray-50 dark:bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div
-          animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"
+          animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 right-1/4 w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{ rotate: -360, scale: [1.2, 1, 1.2] }}
-          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-500/5 to-pink-500/5 rounded-full blur-3xl"
+          animate={{ rotate: -360, scale: [1.1, 1, 1.1] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-1/4 left-1/4 w-56 sm:w-64 md:w-80 h-56 sm:h-64 md:h-80 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"
         />
       </div>
 
@@ -83,114 +83,89 @@ const Experience: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-sm font-medium mb-6"
+            className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full text-purple-600 dark:text-purple-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
           >
-            <Layers className="w-4 h-4 mr-2" />
-            Experience & Education
+            <Briefcase className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            Professional Journey
           </motion.div>
 
-          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             <motion.span
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              My
+              Work
             </motion.span>{' '}
             <motion.span
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-600 bg-clip-text text-transparent"
             >
-              Journey
+              Experience
             </motion.span>
           </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 120 }}
+            transition={{ duration: 1, delay: 0.7 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
-          >
-            My journey through professional experience, education, and continuous learning
-          </motion.p>
+            className="h-1 bg-gradient-to-r from-purple-400 to-pink-600 mx-auto rounded-full"
+          />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Professional Experience */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
+          {/* Work Experience */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="space-y-6 sm:space-y-8"
           >
-            <div className="flex items-center mb-8">
-              <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-                className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg"
-              >
-                <Briefcase className="w-8 h-8" />
-              </motion.div>
-              <h3 className="ml-4 text-2xl font-bold text-gray-900 dark:text-white">
-                Professional Experience
-              </h3>
-            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
+              Professional Experience
+            </h3>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {experiences.map((exp, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={exp.title}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative"
+                  className="relative pl-6 sm:pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-purple-500 before:to-pink-500"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  
-                  <div className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
-                      {exp.title}
-                    </h4>
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-3">
-                      <span className="flex items-center">
-                        <Briefcase className="w-4 h-4 mr-1" />
-                        {exp.company}
-                      </span>
-                      <span className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {exp.period}
-                      </span>
-                      <span className="flex items-center">
-                        <MapPin className="w-4 h-4 mr-1" />
-                        {exp.location}
-                      </span>
+                  <div className="absolute left-[-3px] top-0 w-2 h-2 rounded-full bg-purple-500" />
+                  <div className="bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 dark:border-white/10 p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">{exp.title}</h4>
+                      <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">{exp.period}</span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      {exp.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {exp.achievements.map((achievement, i) => (
+                    <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">{exp.company}</div>
+                    <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                      {exp.achievements.map((achievement, idx) => (
                         <motion.li
-                          key={i}
+                          key={idx}
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                          className="flex items-start text-sm text-gray-600 dark:text-gray-300"
+                          transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
+                          viewport={{ once: true }}
+                          className="flex items-start gap-2 sm:gap-3"
                         >
-                          <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                          <span className="text-purple-500 mt-1.5">•</span>
                           {achievement}
                         </motion.li>
                       ))}
@@ -201,97 +176,44 @@ const Experience: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Education & Certifications */}
+          {/* Education */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="space-y-6 sm:space-y-8"
           >
-            <div className="flex items-center mb-8">
-              <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-                className="p-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg"
-              >
-                <BookOpen className="w-8 h-8" />
-              </motion.div>
-              <h3 className="ml-4 text-2xl font-bold text-gray-900 dark:text-white">
-                Education
-              </h3>
-            </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
+              Education
+            </h3>
 
-            <div className="space-y-6 mb-12">
+            <div className="space-y-6 sm:space-y-8">
               {education.map((edu, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={edu.degree}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative"
+                  className="relative pl-6 sm:pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-pink-500 before:to-red-500"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  
-                  <div className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
-                      {edu.degree}
-                    </h4>
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-2">
-                      <span className="flex items-center">
-                        <BookOpen className="w-4 h-4 mr-1" />
-                        {edu.institution}
-                      </span>
-                      <span className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {edu.period}
-                      </span>
+                  <div className="absolute left-[-3px] top-0 w-2 h-2 rounded-full bg-pink-500" />
+                  <div className="bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 dark:border-white/10 p-4 sm:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-3 sm:mb-4">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">{edu.degree}</h4>
+                      <span className="text-sm text-pink-600 dark:text-pink-400 font-medium">{edu.period}</span>
                     </div>
-                    <div className="flex flex-wrap gap-4 text-sm">
-                      <span className="text-cyan-600 dark:text-cyan-400 font-medium">
-                        {edu.cgpa}
-                      </span>
-                      <span className={`px-2 py-1 rounded-full text-xs ${
-                        edu.status === 'In Progress' 
-                          ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
-                          : 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
-                      }`}>
+                    <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">{edu.institution}</div>
+                    <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                      <span className="text-purple-600 dark:text-purple-400 font-medium">{edu.cgpa}</span>
+                      <span className={`ml-2 px-2 py-1 rounded-full text-xs ${edu.status === 'In Progress'
+                        ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
+                        : 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
+                        }`}>
                         {edu.status}
                       </span>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="flex items-center mb-6">
-              <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-                className="p-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg"
-              >
-                <Award className="w-8 h-8" />
-              </motion.div>
-              <h3 className="ml-4 text-2xl font-bold text-gray-900 dark:text-white">
-                Certifications
-              </h3>
-            </div>
-
-            <div className="space-y-3">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  
-                  <div className="relative flex items-center p-4 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                    <Award className="w-5 h-5 text-cyan-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700 dark:text-gray-300">{cert}</span>
                   </div>
                 </motion.div>
               ))}

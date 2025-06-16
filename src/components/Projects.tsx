@@ -117,18 +117,18 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 bg-white dark:bg-black relative overflow-hidden">
+    <section id="projects" className="py-20 sm:py-24 md:py-32 bg-white dark:bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div
           animate={{ rotate: 360, scale: [1, 1.2, 1] }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"
+          className="absolute top-1/3 left-1/4 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ rotate: -360, scale: [1.2, 1, 1.2] }}
           transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-500/5 to-pink-500/5 rounded-full blur-3xl"
+          className="absolute bottom-1/3 right-1/4 w-40 sm:w-56 md:w-80 h-40 sm:h-56 md:h-80 bg-gradient-to-r from-cyan-500/5 to-pink-500/5 rounded-full blur-3xl"
         />
       </div>
 
@@ -138,20 +138,20 @@ const Projects: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-sm font-medium mb-6"
+            className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
           >
-            <Layers className="w-4 h-4 mr-2" />
+            <Layers className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
             Featured Projects
           </motion.div>
 
-          <h2 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             <motion.span
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -176,13 +176,13 @@ const Projects: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4"
           >
             A showcase of innovative solutions I've built, from AI-powered platforms to scalable e-commerce systems
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -194,12 +194,12 @@ const Projects: React.FC = () => {
               className="group relative"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-              
-              <div 
+
+              <div
                 className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300 cursor-pointer"
                 onClick={() => setSelectedProject(project.id)}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 sm:h-48 overflow-hidden">
                   <motion.img
                     src={project.image}
                     alt={project.title}
@@ -210,11 +210,11 @@ const Projects: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
+                <div className="p-6 sm:p-8">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
                     {project.shortDesc}
                   </p>
 
@@ -235,8 +235,8 @@ const Projects: React.FC = () => {
                   </div>
 
                   <div className="flex justify-between items-center">
-                    <span className="text-cyan-600 dark:text-cyan-400 font-medium group-hover:underline">
-                      View Details 
+                    <span className="text-sm sm:text-base text-cyan-600 dark:text-cyan-400 font-medium group-hover:underline">
+                      View Details
                       <motion.span
                         animate={{ x: [0, 5, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
@@ -259,14 +259,14 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-start justify-center p-4 md:p-8 overflow-y-auto"
+              className="fixed inset-0 bg-black/90 backdrop-blur-md z-[9999] flex items-start justify-center p-4 md:p-8 overflow-y-auto"
               onClick={() => setSelectedProject(null)}
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0, y: 20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl max-w-4xl w-full my-20 border border-white/20 dark:border-white/10"
+                className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl max-w-4xl w-full my-20 border border-white/20 dark:border-white/10 z-[10000]"
                 onClick={(e) => e.stopPropagation()}
               >
                 {(() => {
@@ -296,7 +296,7 @@ const Projects: React.FC = () => {
                         <h3 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
                           {project.title}
                         </h3>
-                        
+
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                           {project.fullDesc}
                         </p>

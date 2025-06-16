@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Code, Coffee, Github, Linkedin, Mail, Phone, Sparkles, Layers } from 'lucide-react';
+import { Linkedin, Mail, Phone, Layers } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -8,8 +8,7 @@ const Footer: React.FC = () => {
   const socialLinks = [
     { icon: Phone, href: 'tel:+917010947275', label: 'Phone', color: 'hover:text-green-500' },
     { icon: Mail, href: 'mailto:ruban9124@gmail.com', label: 'Email', color: 'hover:text-red-500' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/ruban9124', label: 'LinkedIn', color: 'hover:text-blue-500' },
-    { icon: Github, href: 'https://github.com/ruban9124', label: 'GitHub', color: 'hover:text-purple-500' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ruban9124/', label: 'LinkedIn', color: 'hover:text-blue-500' },
   ];
 
   return (
@@ -41,28 +40,22 @@ const Footer: React.FC = () => {
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-sm font-medium mb-6"
+            className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
           >
-            <Layers className="w-4 h-4 mr-2" />
+            <Layers className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
             Let's Connect
           </motion.div>
 
-          <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-6">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6">
             Ruban Karthick V
           </h3>
 
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-            Full-Stack Developer passionate about creating innovative solutions that make a difference. 
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
+            Full-Stack Developer passionate about creating innovative solutions that make a difference.
             Always ready to take on new challenges and build amazing things.
           </p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-4 mb-8"
-          >
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12">
             {socialLinks.map(({ icon: Icon, href, label, color }, index) => (
               <motion.a
                 key={label}
@@ -71,53 +64,33 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.1, y: -5 }}
+                whileHover={{ scale: 1.05, y: -3 }}
                 className="group relative block"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                
-                <div className="relative p-4 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                  <Icon size={24} className={`text-gray-600 dark:text-gray-300 ${color}`} />
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+
+                <div className="relative p-2 sm:p-3 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
+                  <Icon size={18} className={`sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300 ${color}`} />
                 </div>
               </motion.a>
             ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400 mb-8"
-          >
-            <span>Made with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              <Heart className="w-5 h-5 text-red-500 fill-current" />
-            </motion.div>
-            <span>using</span>
-            <Code className="w-5 h-5 text-cyan-500" />
-            <span>React & TypeScript</span>
-            <Coffee className="w-5 h-5 text-yellow-500" />
-          </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="border-t border-white/10 dark:border-white/5 pt-8"
+            className="border-t border-white/10 dark:border-white/5 pt-6 sm:pt-8"
           >
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 © {currentYear} Ruban Karthick V. All rights reserved.
               </p>
-              
-              <div className="flex space-x-6 text-sm text-gray-600 dark:text-gray-400">
+
+              <div className="flex space-x-4 sm:space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
@@ -142,9 +115,9 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
-            className="mt-8 text-center"
+            className="mt-6 sm:mt-8 text-center"
           >
-            <p className="text-sm text-gray-500 dark:text-gray-500">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500">
               "Code is like humor. When you have to explain it, it's bad." - Cory House
             </p>
           </motion.div>

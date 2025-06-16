@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink, Sparkles, Layers } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, ExternalLink, Layers } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,20 +13,43 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
-    
-    // You can integrate with a real form service here
-    alert('Thank you for your message! I\'ll get back to you soon.');
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      if (!formRef.current) return;
+
+      const result = await emailjs.sendForm(
+        'service_9el7qqg',
+        'template_xcd1e47',
+        formRef.current,
+        'AMGjZ9rCDRtoJ7HYc'
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you for your message! I\'ll get back to you soon.'
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Sorry, there was an error sending your message. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -51,7 +76,7 @@ const Contact: React.FC = () => {
       icon: MapPin,
       title: 'Location',
       value: 'Coimbatore, Tamil Nadu, India',
-      link: '#'
+      link: null
     }
   ];
 
@@ -59,19 +84,13 @@ const Contact: React.FC = () => {
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/ruban9124',
+      url: 'https://www.linkedin.com/in/ruban9124/',
       color: 'hover:text-blue-600'
-    },
-    {
-      icon: Github,
-      name: 'GitHub',
-      url: 'https://github.com/ruban9124',
-      color: 'hover:text-gray-900 dark:hover:text-white'
     },
     {
       icon: ExternalLink,
       name: 'Portfolio',
-      url: '#',
+      url: 'https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link',
       color: 'hover:text-purple-600'
     }
   ];
@@ -150,38 +169,69 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-6 mb-8">
+            <div className="space-y-4 sm:space-y-6 mb-8">
               {contactInfo.map((info, index) => (
-                <motion.a
-                  key={index}
-                  href={info.link}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="group relative block"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                  
-                  <div className="relative flex items-center p-6 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                      className="p-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-2xl mr-4"
-                    >
-                      <info.icon size={24} />
-                    </motion.div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
-                        {info.title}
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-300">
-                        {info.value}
-                      </p>
+                info.link ? (
+                  <motion.a
+                    key={index}
+                    href={info.link}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5, scale: 1.02 }}
+                    className="group relative block"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+
+                    <div className="relative flex items-center p-4 sm:p-6 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
+                      <motion.div
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                        className="p-2 sm:p-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl mr-3 sm:mr-4"
+                      >
+                        <info.icon size={20} className="sm:w-6 sm:h-6" />
+                      </motion.div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors text-sm sm:text-base">
+                          {info.title}
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+                          {info.value}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.a>
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group relative block"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl transition-all duration-300" />
+
+                    <div className="relative flex items-center p-4 sm:p-6 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 transition-all duration-300">
+                      <motion.div
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.6 }}
+                        className="p-2 sm:p-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl mr-3 sm:mr-4"
+                      >
+                        <info.icon size={20} className="sm:w-6 sm:h-6" />
+                      </motion.div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+                          {info.title}
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+                          {info.value}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
               ))}
             </div>
 
@@ -204,7 +254,7 @@ const Contact: React.FC = () => {
                     className="group relative block"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-                    
+
                     <div className="relative p-4 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
                       <social.icon size={24} className={`text-gray-600 dark:text-gray-300 ${social.color}`} />
                     </div>
@@ -221,11 +271,11 @@ const Contact: React.FC = () => {
               className="group relative"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-              
+
               <div className="relative p-6 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-3xl border border-white/20 hover:border-white/40 transition-all duration-300">
                 <h4 className="text-xl font-bold mb-2">Available for Freelance</h4>
                 <p className="opacity-90">
-                  I'm currently available for freelance projects and full-time opportunities. 
+                  I'm currently available for freelance projects and full-time opportunities.
                   Let's discuss how I can help bring your ideas to life.
                 </p>
               </div>
@@ -241,11 +291,20 @@ const Contact: React.FC = () => {
             className="group relative"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
-            
-            <form onSubmit={handleSubmit} className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
+
+            <form ref={formRef} onSubmit={handleSubmit} className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Send Message
               </h3>
+
+              {submitStatus.type && (
+                <div className={`mb-6 p-4 rounded-xl ${submitStatus.type === 'success'
+                    ? 'bg-green-500/10 text-green-600 dark:text-green-400'
+                    : 'bg-red-500/10 text-red-600 dark:text-red-400'
+                  }`}>
+                  {submitStatus.message}
+                </div>
+              )}
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
