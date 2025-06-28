@@ -41,9 +41,20 @@ const Navigation: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu first
+      setIsOpen(false);
+
+      // Add a small delay to ensure menu closes before scrolling
+      setTimeout(() => {
+        const navbarHeight = 50; // Height of the navbar (h-20 = 80px)
+        const elementPosition = element.offsetTop - navbarHeight;
+
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }, 100);
     }
-    setIsOpen(false);
   };
 
   return (
@@ -77,7 +88,7 @@ const Navigation: React.FC = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
@@ -87,7 +98,7 @@ const Navigation: React.FC = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${activeSection === item.id
+                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg whitespace-nowrap ${activeSection === item.id
                   ? 'text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:text-white'
                   }`}
@@ -104,12 +115,12 @@ const Navigation: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 lg:space-x-4">
             <motion.button
               whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className="p-3 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-700 dark:text-gray-300 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="p-2 lg:p-3 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-700 dark:text-gray-300 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <AnimatePresence mode="wait">
                 {theme === 'light' ? (
@@ -120,7 +131,7 @@ const Navigation: React.FC = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Moon size={20} />
+                    <Moon size={18} className="lg:w-5 lg:h-5" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -130,7 +141,7 @@ const Navigation: React.FC = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Sun size={20} />
+                    <Sun size={18} className="lg:w-5 lg:h-5" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -140,7 +151,7 @@ const Navigation: React.FC = () => {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-3 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-700 dark:text-gray-300 shadow-lg"
+              className="md:hidden p-2 lg:p-3 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-700 dark:text-gray-300 shadow-lg"
             >
               <AnimatePresence mode="wait">
                 {isOpen ? (
@@ -151,7 +162,7 @@ const Navigation: React.FC = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X size={20} />
+                    <X size={18} className="lg:w-5 lg:h-5" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -161,7 +172,7 @@ const Navigation: React.FC = () => {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu size={20} />
+                    <Menu size={18} className="lg:w-5 lg:h-5" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -172,32 +183,45 @@ const Navigation: React.FC = () => {
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden backdrop-blur-xl bg-white/10 dark:bg-black/20 rounded-2xl mt-4 border border-white/10 dark:border-white/5"
-            >
-              <div className="py-6 space-y-2">
-                {navItems.map((item, index) => (
-                  <motion.button
-                    key={item.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ x: 10, scale: 1.02 }}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left px-6 py-3 text-lg font-medium transition-all duration-300 ${activeSection === item.id
-                      ? 'text-cyan-400 bg-gradient-to-r from-cyan-500/10 to-purple-600/10'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-cyan-400'
-                      }`}
-                  >
-                    {item.label}
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+                onClick={() => setIsOpen(false)}
+              />
+
+              {/* Mobile Menu */}
+              <motion.div
+                initial={{ opacity: 0, height: 0, y: -20 }}
+                animate={{ opacity: 1, height: 'auto', y: 0 }}
+                exit={{ opacity: 0, height: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden overflow-hidden backdrop-blur-xl bg-white/10 dark:bg-black/20 rounded-2xl mt-4 border border-white/10 dark:border-white/5 relative z-50"
+              >
+                <div className="py-6 space-y-2">
+                  {navItems.map((item, index) => (
+                    <motion.button
+                      key={item.id}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      whileHover={{ x: 10, scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`block w-full text-left px-6 py-4 text-lg font-medium transition-all duration-300 rounded-lg mx-2 ${activeSection === item.id
+                        ? 'text-cyan-400 bg-gradient-to-r from-cyan-500/10 to-purple-600/10'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-cyan-400 hover:bg-white/5 dark:hover:bg-white/5'
+                        }`}
+                    >
+                      {item.label}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

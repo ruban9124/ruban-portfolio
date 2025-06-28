@@ -37,7 +37,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-black relative overflow-hidden">
+    <section id="about" className="py-12 sm:py-12 md:py-12 bg-gray-50 dark:bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -65,13 +65,13 @@ const About: React.FC = () => {
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
+            className="inline-flex items-center px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-xs sm:text-sm md:text-base font-medium mb-4 sm:mb-6"
           >
-            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2" />
             About Me
           </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             <motion.span
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -114,7 +114,7 @@ const About: React.FC = () => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 via-purple-500 to-pink-500 rounded-full p-1"
+                className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full p-1"
               >
                 <div className="w-full h-full bg-gray-50 dark:bg-black rounded-full" />
               </motion.div>
@@ -173,11 +173,11 @@ const About: React.FC = () => {
             className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
                 Full-Stack Developer & AI Innovator
               </h3>
 
-              <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -219,8 +219,8 @@ const About: React.FC = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="p-3 sm:p-4 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300"
                 >
-                  <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-500 mb-2 sm:mb-3" />
-                  <h4 className="font-bold text-gray-900 dark:text-white mb-1 text-sm sm:text-base">{title}</h4>
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-cyan-500 mb-2 sm:mb-3" />
+                  <h4 className="font-bold text-gray-900 dark:text-white mb-1 text-xs sm:text-sm md:text-base">{title}</h4>
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{desc}</p>
                 </motion.div>
               ))}
@@ -259,7 +259,7 @@ const About: React.FC = () => {
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2"
                 >
                   {value}
                 </motion.div>
@@ -277,7 +277,7 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           className="mb-12 sm:mb-16 md:mb-20"
         >
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">
             Soft Skills & Leadership
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -291,8 +291,8 @@ const About: React.FC = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="p-4 sm:p-6 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/20 dark:border-white/10 hover:border-purple-500/30 transition-all duration-300"
               >
-                <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-purple-500 mb-3 sm:mb-4" />
-                <h4 className="font-bold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">{title}</h4>
+                <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-purple-500 mb-3 sm:mb-4" />
+                <h4 className="font-bold text-gray-900 dark:text-white mb-2 text-xs sm:text-sm md:text-base">{title}</h4>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{desc}</p>
               </motion.div>
             ))}

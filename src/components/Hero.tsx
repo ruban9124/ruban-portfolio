@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black md:pt-14">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black md:pt-14">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-black dark:via-gray-900 dark:to-black">
         {/* Gradient Orbs */}
@@ -134,15 +134,15 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-4 sm:mb-6"
           >
-            <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-xs sm:text-sm font-medium backdrop-blur-sm">
-              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            <span className="inline-flex items-center px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-xs sm:text-sm md:text-base font-medium backdrop-blur-sm">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2" />
               Welcome to my digital space
             </span>
           </motion.div>
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -161,14 +161,14 @@ const Hero: React.FC = () => {
 
           {/* Animated Subtitle */}
           <motion.div
-            className="text-2xl sm:text-3xl md:text-4xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 h-12 sm:h-16 flex items-center justify-center"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 h-10 sm:h-12 md:h-16 flex items-center justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <span className="mr-2 sm:mr-4">I'm a</span>
             <motion.span
-              className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 font-bold min-w-[200px] sm:min-w-[300px] text-left"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600 font-bold min-w-[150px] sm:min-w-[200px] md:min-w-[250px] lg:min-w-[300px] text-left"
               key={currentText}
             >
               {currentText}
@@ -184,7 +184,7 @@ const Hero: React.FC = () => {
 
           {/* Description */}
           <motion.p
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed px-2 sm:px-4"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed px-2 sm:px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -207,7 +207,7 @@ const Hero: React.FC = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex-1 sm:flex-none group relative px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="flex-1 sm:flex-none group relative px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -229,10 +229,10 @@ const Hero: React.FC = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex-1 sm:flex-none group px-4 sm:px-8 py-3 sm:py-4 border-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg hover:bg-cyan-500 hover:text-white transition-all duration-300 backdrop-blur-sm"
+                className="flex-1 sm:flex-none group px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 border-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base lg:text-lg hover:bg-cyan-500 hover:text-white transition-all duration-300 backdrop-blur-sm"
               >
                 <span className="flex items-center justify-center">
-                  <Handshake className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
+                  <Handshake className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 group-hover:animate-bounce" />
                   Get In Touch
                 </span>
               </motion.button>
@@ -243,10 +243,10 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
-                className="hidden md:block group px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="hidden md:block group px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <span className="flex items-center justify-center">
-                  <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
+                  <Download className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 group-hover:animate-bounce" />
                   Download Resume
                 </span>
               </motion.a>
@@ -258,10 +258,10 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="block md:hidden w-full group px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+              className="block md:hidden w-full group px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center"
             >
               <span className="flex items-center justify-center">
-                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
+                <Download className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1.5 sm:mr-2 group-hover:animate-bounce" />
                 Download Resume
               </span>
             </motion.a>
