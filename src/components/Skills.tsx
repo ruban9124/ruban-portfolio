@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Cloud, Bot, Cpu, Zap, Layers } from "lucide-react";
+import { Code, Database, Cloud, Bot, Cpu, Zap, Layers, Settings } from "lucide-react";
 
 const Skills: React.FC = () => {
   const skillCategories = [
@@ -13,6 +13,8 @@ const Skills: React.FC = () => {
         { name: "TypeScript", level: 85 },
         { name: "Tailwind CSS", level: 95 },
         { name: "JavaScript", level: 90 },
+        { name: "Bootstrap", level: 85 },
+        { name: "HTML/CSS", level: 95 },
       ],
     },
     {
@@ -24,6 +26,8 @@ const Skills: React.FC = () => {
         { name: "Node.js", level: 80 },
         { name: "PHP", level: 85 },
         { name: "REST APIs", level: 95 },
+        { name: "Pyrogram", level: 90 },
+        { name: "JWT Authentication", level: 85 },
       ],
     },
     {
@@ -35,6 +39,8 @@ const Skills: React.FC = () => {
         { name: "DigitalOcean", level: 90 },
         { name: "Docker", level: 75 },
         { name: "Linux/VPS", level: 90 },
+        { name: "Google Cloud", level: 80 },
+        { name: "Heroku/Render", level: 85 },
       ],
     },
     {
@@ -46,6 +52,8 @@ const Skills: React.FC = () => {
         { name: "OpenAI GPT-4", level: 90 },
         { name: "Python Automation", level: 95 },
         { name: "Telegram Bots", level: 90 },
+        { name: "HuggingFace", level: 80 },
+        { name: "BeautifulSoup", level: 80 },
       ],
     },
     {
@@ -57,6 +65,8 @@ const Skills: React.FC = () => {
         { name: "MongoDB", level: 80 },
         { name: "AWS DynamoDB", level: 85 },
         { name: "AWS RDS", level: 85 },
+        { name: "PhpMyAdmin (Tool)", level: 90 },
+        { name: "MongoDB Compass (Tool)", level: 80 },
       ],
     },
     {
@@ -68,42 +78,74 @@ const Skills: React.FC = () => {
         { name: "Postman", level: 95 },
         { name: "VS Code", level: 95 },
         { name: "Cloudflare", level: 85 },
+        { name: "n8n", level: 80 },
+        { name: "Kubernetes", level: 70 },
       ],
     },
   ];
 
   const additionalTech = [
-    "Razorpay",
-    "Stripe",
-    "Bootstrap",
-    "React",
-    "JWT Authentication",
-    "SSL/TLS",
-    "Nginx",
-    "Selenium",
-    "BeautifulSoup",
-    "n8n",
-    "Caddy",
-    "Google Calendar API",
-    "Pyrogram",
-    "Telegram Bots",
-    "S3",
-    "RDS",
-    "DynamoDB",
-    "EC2",
-    "R2",
-    "Cloudflare R2",
-    "Cloudflare CDN",
-    "Cloudflare Workers",
-    "Cloudflare Pages",
-    "Cloudflare DNS",
-    "Cloudflare SSL",
+    // Payment Gateways
+    "Razorpay", "Stripe", "PayPal",
+
+    // AWS Services
+    "S3", "RDS", "DynamoDB", "EC2", "Lambda", "CloudFront",
+
+    // Cloudflare Services
+    "Cloudflare R2", "Cloudflare CDN", "Cloudflare Workers",
+    "Cloudflare Pages", "Cloudflare DNS", "Cloudflare SSL",
+
+    // APIs & Integrations
+    "Google Calendar API", "Tailro API", "Telegram Bots",
+
+    // Security & Networking
+    "SSL/TLS", "JWT Authentication", "DNS/IP Management",
+    "Load Balancing", "Firewalls",
+
+    // Development Tools
+    "Bootstrap", "React", "Nginx", "BeautifulSoup",
+
+    // Automation & Workflow
+    "n8n", "Pyrogram", "Python Automation",
+
+    // Version Control & CI/CD
+    "Git", "GitHub", "GitLab", "CI/CD Pipelines",
+
+    // Other Technologies
+    "Agile Development", "SaaS Lifecycle", "End-to-End Development",
+    "MVP Launch", "Backend Architecture", "RESTful API",
+    "B2B Automation", "Scalable Web Architecture", "Load Balancing",
+    "Caching", "Database Optimization", "Data Security", "Encryption",
+    "Hashing", "Kubernetes (Basic)", "cPanel", "Server Management"
+  ];
+
+  const toolsAndTechnologies = [
+    {
+      category: "Development Tools",
+      items: ["Visual Studio Code", "Postman", "Git", "GitHub", "GitLab"]
+    },
+    {
+      category: "Database Tools",
+      items: ["PhpMyAdmin", "MongoDB Compass", "MySQL Workbench"]
+    },
+    {
+      category: "Server & Deployment",
+      items: ["Docker", "AWS EC2", "GCP", "DigitalOcean", "Heroku", "Render", "Koyeb"]
+    },
+    {
+      category: "AI Dev Tools",
+      items: ["LangChain", "OpenAI Platform", "Tailro AI Agent", "HuggingFace"]
+    },
+    {
+      category: "Workflow Automation",
+      items: ["n8n", "Python Scripts", "Telegram Bots", "Web Scraping"]
+    }
   ];
 
   return (
     <section
       id="skills"
-      className="py-20 sm:py-24 md:py-32 bg-white dark:bg-black relative overflow-hidden"
+      className="py-12 sm:py-12 md:py-12 bg-white dark:bg-black relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -199,24 +241,13 @@ const Skills: React.FC = () => {
 
                 <div className="space-y-4 sm:space-y-6">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name}>
-                      <div className="flex justify-between mb-2 sm:mb-3">
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    <div key={skill.name} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm sm:text-base font-medium text-gray-900 dark:text-white">
                           {skill.name}
                         </span>
-                        <motion.span
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{
-                            duration: 0.5,
-                            delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                          }}
-                          viewport={{ once: true }}
-                          className="text-sm text-cyan-600 dark:text-cyan-400 font-bold"
-                        >
-                          {skill.level}%
-                        </motion.span>
                       </div>
+
                       <div className="relative w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2 sm:h-3 overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
@@ -243,6 +274,52 @@ const Skills: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Tools & Technologies Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mb-12 sm:mb-16 md:mb-20"
+        >
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+            Tools & Technologies
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {toolsAndTechnologies.map((toolCategory, index) => (
+              <motion.div
+                key={toolCategory.category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-white/10"
+              >
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                  <Settings className="w-5 h-5 mr-2 text-cyan-500" />
+                  {toolCategory.category}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {toolCategory.items.map((tool, toolIndex) => (
+                    <motion.span
+                      key={tool}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 + toolIndex * 0.05 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.05 }}
+                      className="px-3 py-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-sm font-medium"
+                    >
+                      {tool}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Additional Technologies */}
         <motion.div

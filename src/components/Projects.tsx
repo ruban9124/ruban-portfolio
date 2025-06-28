@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 sm:py-24 md:py-32 bg-white dark:bg-black relative overflow-hidden">
+    <section id="projects" className="py-12 sm:py-12 md:py-12 bg-white dark:bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div

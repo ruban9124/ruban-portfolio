@@ -1,14 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Phone, Layers } from 'lucide-react';
+import { Linkedin, Mail, Phone, Layers, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     { icon: Phone, href: 'tel:+917010947275', label: 'Phone', color: 'hover:text-green-500' },
-    { icon: Mail, href: 'mailto:ruban9124@gmail.com', label: 'Email', color: 'hover:text-red-500' },
+    { icon: Mail, href: 'mailto:hello@rubankarthick.com', label: 'Email', color: 'hover:text-red-500' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/ruban9124/', label: 'LinkedIn', color: 'hover:text-blue-500' },
+    { icon: ExternalLink, href: 'https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link', label: 'Resume', color: 'hover:text-purple-500' },
   ];
 
   return (
@@ -101,10 +102,20 @@ const Footer: React.FC = () => {
                 <span>•</span>
                 <motion.a
                   whileHover={{ scale: 1.05, y: -2 }}
-                  href="mailto:ruban9124@gmail.com"
+                  href="mailto:hello@rubankarthick.com"
                   className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
                 >
                   Say Hello
+                </motion.a>
+                <span>•</span>
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  href="https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
+                >
+                  Resume
                 </motion.a>
               </div>
             </div>

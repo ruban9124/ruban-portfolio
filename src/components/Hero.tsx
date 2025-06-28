@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Linkedin, Mail, Phone, Download, Sparkles, Code, Zap } from 'lucide-react';
+import { ChevronDown, Linkedin, Mail, Phone, Download, Sparkles, Code, Zap, Handshake } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [currentText, setCurrentText] = useState('');
@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 sm:pt-28 md:pt-32">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black md:pt-14">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-black dark:via-gray-900 dark:to-black">
         {/* Gradient Orbs */}
@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-14 md:pt-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -197,44 +197,74 @@ const Hero: React.FC = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4 sm:px-6"
+            className="flex flex-col gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4 sm:px-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex-1 sm:flex-none group relative px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                whileHover={{ scale: 1.05 }}
-              />
-              <span className="relative z-10 flex items-center justify-center">
-                View My Work
+            <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex-1 sm:flex-none group relative px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
                 <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="ml-2"
-                >
-                  →
-                </motion.div>
-              </span>
-            </motion.button>
+                  className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  whileHover={{ scale: 1.05 }}
+                />
+                <span className="relative z-10 flex items-center justify-center">
+                  View My Work
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="ml-2"
+                  >
+                    →
+                  </motion.div>
+                </span>
+              </motion.button>
 
-            <motion.button
+              <motion.button
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex-1 sm:flex-none group px-4 sm:px-8 py-3 sm:py-4 border-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg hover:bg-cyan-500 hover:text-white transition-all duration-300 backdrop-blur-sm"
+              >
+                <span className="flex items-center justify-center">
+                  <Handshake className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
+                  Get In Touch
+                </span>
+              </motion.button>
+
+              <motion.a
+                href="https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                className="hidden md:block group px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <span className="flex items-center justify-center">
+                  <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
+                  Download Resume
+                </span>
+              </motion.a>
+            </div>
+
+            <motion.a
+              href="https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex-1 sm:flex-none group px-4 sm:px-8 py-3 sm:py-4 border-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg hover:bg-cyan-500 hover:text-white transition-all duration-300 backdrop-blur-sm"
+              className="block md:hidden w-full group px-4 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center"
             >
               <span className="flex items-center justify-center">
                 <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-bounce" />
-                Get In Touch
+                Download Resume
               </span>
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Social Links */}
@@ -246,7 +276,7 @@ const Hero: React.FC = () => {
           >
             {[
               { Icon: Phone, href: 'tel:+917010947275', label: 'Phone', color: 'hover:text-green-500' },
-              { Icon: Mail, href: 'mailto:ruban9124@gmail.com', label: 'Email', color: 'hover:text-red-500' },
+              { Icon: Mail, href: 'mailto:hello@rubankarthick.com', label: 'Email', color: 'hover:text-red-500' },
               { Icon: Linkedin, href: 'https://www.linkedin.com/in/ruban9124/', label: 'LinkedIn', color: 'hover:text-blue-500' },
             ].map(({ Icon, href, label, color }, index) => (
               <motion.a

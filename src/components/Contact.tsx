@@ -69,8 +69,8 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'ruban9124@gmail.com',
-      link: 'mailto:ruban9124@gmail.com'
+      value: 'hello@rubankarthick.com',
+      link: 'mailto:hello@rubankarthick.com'
     },
     {
       icon: MapPin,
@@ -89,14 +89,14 @@ const Contact: React.FC = () => {
     },
     {
       icon: ExternalLink,
-      name: 'Portfolio',
+      name: 'Resume',
       url: 'https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link',
       color: 'hover:text-purple-600'
     }
   ];
 
   return (
-    <section id="contact" className="py-32 bg-white dark:bg-black relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-12 md:py-12 bg-gray-50 dark:bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -272,11 +272,11 @@ const Contact: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
 
-              <div className="relative p-6 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-3xl border border-white/20 hover:border-white/40 transition-all duration-300">
-                <h4 className="text-xl font-bold mb-2">Available for Freelance</h4>
+              <div className="relative p-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-3xl border border-white/20 hover:border-white/40 transition-all duration-300">
+                <h4 className="text-xl font-bold mb-2">Joined at Vseek Ventures</h4>
                 <p className="opacity-90">
-                  I'm currently available for freelance projects and full-time opportunities.
-                  Let's discuss how I can help bring your ideas to life.
+                  Successfully joined as a Frontend Developer at Vseek Ventures.
+                  Excited to contribute to innovative projects and continue growing professionally.
                 </p>
               </div>
             </motion.div>
@@ -299,8 +299,8 @@ const Contact: React.FC = () => {
 
               {submitStatus.type && (
                 <div className={`mb-6 p-4 rounded-xl ${submitStatus.type === 'success'
-                    ? 'bg-green-500/10 text-green-600 dark:text-green-400'
-                    : 'bg-red-500/10 text-red-600 dark:text-red-400'
+                  ? 'bg-green-500/10 text-green-600 dark:text-green-400'
+                  : 'bg-red-500/10 text-red-600 dark:text-red-400'
                   }`}>
                   {submitStatus.message}
                 </div>
