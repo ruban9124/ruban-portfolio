@@ -1,18 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Linkedin, Mail, Phone, Download, Sparkles, Code, Zap, Handshake } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  ChevronDown,
+  Linkedin,
+  Mail,
+  Phone,
+  Download,
+  Sparkles,
+  Code,
+  Zap,
+  Handshake,
+} from "lucide-react";
 
 const Hero: React.FC = () => {
-  const [currentText, setCurrentText] = useState('');
+  const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const titles = [
-    'Full-Stack Developer',
-    'AI Integrator',
-    'Cloud Engineer',
-    'SaaS Architect',
-    'Automation Expert'
+    "Full-Stack Developer",
+    "AI Integrator",
+    "Cloud Engineer",
+    "SaaS Architect",
+    "Automation Expert",
   ];
 
   useEffect(() => {
@@ -36,9 +46,9 @@ const Hero: React.FC = () => {
   }, [currentText, currentIndex, isDeleting, titles]);
 
   const scrollToAbout = () => {
-    const element = document.getElementById('about');
+    const element = document.getElementById("about");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -49,7 +59,10 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black md:pt-14">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-black dark:via-gray-900 dark:to-black md:pt-14"
+    >
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-black dark:via-gray-900 dark:to-black">
         {/* Gradient Orbs */}
@@ -147,11 +160,11 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Hi, I'm{' '}
+            Hi, I'm{" "}
             <motion.span
               className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
               animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ duration: 3, repeat: Infinity }}
             >
@@ -189,10 +202,19 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Crafting innovative solutions with{' '}
-            <span className="text-cyan-500 font-semibold">AI-powered platforms</span>,{' '}
-            <span className="text-purple-500 font-semibold">scalable architectures</span>, and{' '}
-            <span className="text-blue-500 font-semibold">cloud-native systems</span> that drive business growth.
+            Crafting innovative solutions with{" "}
+            <span className="text-cyan-500 font-semibold">
+              AI-powered platforms
+            </span>
+            ,{" "}
+            <span className="text-purple-500 font-semibold">
+              scalable architectures
+            </span>
+            , and{" "}
+            <span className="text-blue-500 font-semibold">
+              cloud-native systems
+            </span>{" "}
+            that drive business growth.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -206,7 +228,11 @@ const Hero: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="flex-1 sm:flex-none group relative px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
                 <motion.div
@@ -228,7 +254,11 @@ const Hero: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="flex-1 sm:flex-none group px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 border-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base lg:text-lg hover:bg-cyan-500 hover:text-white transition-all duration-300 backdrop-blur-sm"
               >
                 <span className="flex items-center justify-center">
@@ -275,9 +305,24 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             {[
-              { Icon: Phone, href: 'tel:+917010947275', label: 'Phone', color: 'hover:text-green-500' },
-              { Icon: Mail, href: 'mailto:hello@rubankarthick.com', label: 'Email', color: 'hover:text-red-500' },
-              { Icon: Linkedin, href: 'https://www.linkedin.com/in/ruban9124/', label: 'LinkedIn', color: 'hover:text-blue-500' },
+              {
+                Icon: Phone,
+                href: "tel:+917010947275",
+                label: "Phone",
+                color: "hover:text-green-500",
+              },
+              {
+                Icon: Mail,
+                href: "mailto:hello@rubankarthick.com",
+                label: "Email",
+                color: "hover:text-red-500",
+              },
+              {
+                Icon: Linkedin,
+                href: "https://www.linkedin.com/in/rubankarthick-v/",
+                label: "LinkedIn",
+                color: "hover:text-blue-500",
+              },
             ].map(({ Icon, href, label, color }, index) => (
               <motion.a
                 key={label}
@@ -309,7 +354,9 @@ const Hero: React.FC = () => {
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               className="flex flex-col items-center space-y-1 sm:space-y-2"
             >
-              <span className="text-xs sm:text-sm font-medium">Scroll Down</span>
+              <span className="text-xs sm:text-sm font-medium">
+                Scroll Down
+              </span>
               <ChevronDown size={24} className="sm:w-8 sm:h-8" />
             </motion.div>
           </motion.button>

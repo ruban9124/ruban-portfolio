@@ -1,102 +1,116 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Linkedin, ExternalLink, Layers } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Linkedin,
+  ExternalLink,
+  Layers,
+} from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
+    type: "success" | "error" | null;
     message: string;
-  }>({ type: null, message: '' });
+  }>({ type: null, message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: '' });
+    setSubmitStatus({ type: null, message: "" });
 
     try {
       if (!formRef.current) return;
 
       const result = await emailjs.sendForm(
-        'service_9el7qqg',
-        'template_xcd1e47',
+        "service_9el7qqg",
+        "template_xcd1e47",
         formRef.current,
-        'AMGjZ9rCDRtoJ7HYc'
+        "AMGjZ9rCDRtoJ7HYc"
       );
 
-      if (result.text === 'OK') {
+      if (result.text === "OK") {
         setSubmitStatus({
-          type: 'success',
-          message: 'Thank you for your message! I\'ll get back to you soon.'
+          type: "success",
+          message: "Thank you for your message! I'll get back to you soon.",
         });
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        throw new Error('Failed to send message');
+        throw new Error("Failed to send message");
       }
     } catch (error) {
       setSubmitStatus({
-        type: 'error',
-        message: 'Sorry, there was an error sending your message. Please try again.'
+        type: "error",
+        message:
+          "Sorry, there was an error sending your message. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      value: '+91 7010947275',
-      link: 'tel:+917010947275'
+      title: "Phone",
+      value: "+91 7010947275",
+      link: "tel:+917010947275",
     },
     {
       icon: Mail,
-      title: 'Email',
-      value: 'hello@rubankarthick.com',
-      link: 'mailto:hello@rubankarthick.com'
+      title: "Email",
+      value: "hello@rubankarthick.com",
+      link: "mailto:hello@rubankarthick.com",
     },
     {
       icon: MapPin,
-      title: 'Location',
-      value: 'Coimbatore, Tamil Nadu, India',
-      link: null
-    }
+      title: "Location",
+      value: "Coimbatore, Tamil Nadu, India",
+      link: null,
+    },
   ];
 
   const socialLinks = [
     {
       icon: Linkedin,
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/ruban9124/',
-      color: 'hover:text-blue-600'
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/rubankarthick-v/",
+      color: "hover:text-blue-600",
     },
     {
       icon: ExternalLink,
-      name: 'Resume',
-      url: 'https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link',
-      color: 'hover:text-purple-600'
-    }
+      name: "Resume",
+      url: "https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link",
+      color: "hover:text-purple-600",
+    },
   ];
 
   return (
-    <section id="contact" className="py-12 sm:py-12 md:py-12 bg-gray-50 dark:bg-black relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-12 sm:py-12 md:py-12 bg-gray-50 dark:bg-black relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -138,7 +152,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
             >
               Let's
-            </motion.span>{' '}
+            </motion.span>{" "}
             <motion.span
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -157,7 +171,8 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
           >
-            Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+            Ready to bring your ideas to life? Let's discuss your next project
+            and create something amazing together.
           </motion.p>
         </motion.div>
 
@@ -170,7 +185,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="space-y-4 sm:space-y-6 mb-8">
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((info, index) =>
                 info.link ? (
                   <motion.a
                     key={index}
@@ -232,7 +247,7 @@ const Contact: React.FC = () => {
                     </div>
                   </motion.div>
                 )
-              ))}
+              )}
             </div>
 
             <div className="mb-8">
@@ -256,7 +271,10 @@ const Contact: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
 
                     <div className="relative p-4 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                      <social.icon size={24} className={`text-gray-600 dark:text-gray-300 ${social.color}`} />
+                      <social.icon
+                        size={24}
+                        className={`text-gray-600 dark:text-gray-300 ${social.color}`}
+                      />
                     </div>
                   </motion.a>
                 ))}
@@ -273,10 +291,13 @@ const Contact: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
 
               <div className="relative p-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-3xl border border-white/20 hover:border-white/40 transition-all duration-300">
-                <h4 className="text-xl font-bold mb-2">Joined at Vseek Ventures</h4>
+                <h4 className="text-xl font-bold mb-2">
+                  Joined at Vseek Ventures
+                </h4>
                 <p className="opacity-90">
                   Successfully joined as a Frontend Developer at Vseek Ventures.
-                  Excited to contribute to innovative projects and continue growing professionally.
+                  Excited to contribute to innovative projects and continue
+                  growing professionally.
                 </p>
               </div>
             </motion.div>
@@ -292,23 +313,33 @@ const Contact: React.FC = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
 
-            <form ref={formRef} onSubmit={handleSubmit} className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="relative bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300"
+            >
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Send Message
               </h3>
 
               {submitStatus.type && (
-                <div className={`mb-6 p-4 rounded-xl ${submitStatus.type === 'success'
-                  ? 'bg-green-500/10 text-green-600 dark:text-green-400'
-                  : 'bg-red-500/10 text-red-600 dark:text-red-400'
-                  }`}>
+                <div
+                  className={`mb-6 p-4 rounded-xl ${
+                    submitStatus.type === "success"
+                      ? "bg-green-500/10 text-green-600 dark:text-green-400"
+                      : "bg-red-500/10 text-red-600 dark:text-red-400"
+                  }`}
+                >
                   {submitStatus.message}
                 </div>
               )}
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Name *
                   </label>
                   <input
@@ -323,7 +354,10 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Email *
                   </label>
                   <input
@@ -340,7 +374,10 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Subject *
                 </label>
                 <input
@@ -356,7 +393,10 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Message *
                 </label>
                 <textarea
@@ -382,13 +422,17 @@ const Contact: React.FC = () => {
                   {isSubmitting ? (
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                       className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
                     />
                   ) : (
                     <Send className="w-5 h-5 mr-2" />
                   )}
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </span>
               </motion.button>
             </form>

@@ -1,15 +1,35 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Linkedin, Mail, Phone, Layers, ExternalLink } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Linkedin, Mail, Phone, Layers, ExternalLink } from "lucide-react";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Phone, href: 'tel:+917010947275', label: 'Phone', color: 'hover:text-green-500' },
-    { icon: Mail, href: 'mailto:hello@rubankarthick.com', label: 'Email', color: 'hover:text-red-500' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/ruban9124/', label: 'LinkedIn', color: 'hover:text-blue-500' },
-    { icon: ExternalLink, href: 'https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link', label: 'Resume', color: 'hover:text-purple-500' },
+    {
+      icon: Phone,
+      href: "tel:+917010947275",
+      label: "Phone",
+      color: "hover:text-green-500",
+    },
+    {
+      icon: Mail,
+      href: "mailto:hello@rubankarthick.com",
+      label: "Email",
+      color: "hover:text-red-500",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/rubankarthick-v/",
+      label: "LinkedIn",
+      color: "hover:text-blue-500",
+    },
+    {
+      icon: ExternalLink,
+      href: "https://drive.google.com/drive/folders/1ceNZP3yDZdPKD_xjoyHrdezSalr2ZOKX?usp=drive_link",
+      label: "Resume",
+      color: "hover:text-purple-500",
+    },
   ];
 
   return (
@@ -52,8 +72,9 @@ const Footer: React.FC = () => {
           </h3>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4">
-            Full-Stack Developer passionate about creating innovative solutions that make a difference.
-            Always ready to take on new challenges and build amazing things.
+            Full-Stack Developer passionate about creating innovative solutions
+            that make a difference. Always ready to take on new challenges and
+            build amazing things.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12">
@@ -73,7 +94,10 @@ const Footer: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300" />
 
                 <div className="relative p-2 sm:p-3 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                  <Icon size={18} className={`sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300 ${color}`} />
+                  <Icon
+                    size={18}
+                    className={`sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300 ${color}`}
+                  />
                 </div>
               </motion.a>
             ))}
@@ -94,7 +118,11 @@ const Footer: React.FC = () => {
               <div className="flex space-x-4 sm:space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
-                  onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() =>
+                    document
+                      .getElementById("home")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
                 >
                   Back to Top
@@ -129,7 +157,8 @@ const Footer: React.FC = () => {
             className="mt-6 sm:mt-8 text-center"
           >
             <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500">
-              "Code is like humor. When you have to explain it, it's bad." - Cory House
+              "Code is like humor. When you have to explain it, it's bad." -
+              Cory House
             </p>
           </motion.div>
         </motion.div>
