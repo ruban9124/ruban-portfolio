@@ -1,6 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Cloud, Bot, Cpu, Zap, Layers, Settings } from "lucide-react";
+import {
+  Code,
+  Database,
+  Cloud,
+  Bot,
+  Cpu,
+  Zap,
+  Layers,
+  Settings,
+} from "lucide-react";
 
 const Skills: React.FC = () => {
   const skillCategories = [
@@ -9,11 +18,10 @@ const Skills: React.FC = () => {
       icon: Code,
       color: "from-blue-500 to-cyan-500",
       skills: [
+        { name: "Next.js", level: 95 },
         { name: "React (Vite)", level: 90 },
-        { name: "TypeScript", level: 85 },
         { name: "Tailwind CSS", level: 95 },
         { name: "JavaScript", level: 90 },
-        { name: "Bootstrap", level: 85 },
         { name: "HTML/CSS", level: 95 },
       ],
     },
@@ -22,12 +30,11 @@ const Skills: React.FC = () => {
       icon: Database,
       color: "from-green-500 to-emerald-500",
       skills: [
-        { name: "Python (Flask)", level: 90 },
+        { name: "GO", level: 90 },
+        { name: "Python", level: 90 },
         { name: "Node.js", level: 80 },
         { name: "PHP", level: 85 },
         { name: "REST APIs", level: 95 },
-        { name: "Pyrogram", level: 90 },
-        { name: "JWT Authentication", level: 85 },
       ],
     },
     {
@@ -35,11 +42,10 @@ const Skills: React.FC = () => {
       icon: Cloud,
       color: "from-purple-500 to-pink-500",
       skills: [
-        { name: "AWS (EC2, S3, RDS)", level: 85 },
-        { name: "DigitalOcean", level: 90 },
-        { name: "Docker", level: 75 },
-        { name: "Linux/VPS", level: 90 },
         { name: "Google Cloud", level: 80 },
+        { name: "Docker", level: 75 },
+        { name: "DigitalOcean", level: 90 },
+        { name: "AWS (EC2, S3, RDS)", level: 85 },
         { name: "Heroku/Render", level: 85 },
       ],
     },
@@ -48,12 +54,11 @@ const Skills: React.FC = () => {
       icon: Bot,
       color: "from-orange-500 to-red-500",
       skills: [
+        { name: "MCP Tools", level: 95 },
         { name: "LangChain", level: 85 },
-        { name: "OpenAI GPT-4", level: 90 },
+        { name: "LangGraph", level: 90 },
         { name: "Python Automation", level: 95 },
         { name: "Telegram Bots", level: 90 },
-        { name: "HuggingFace", level: 80 },
-        { name: "BeautifulSoup", level: 80 },
       ],
     },
     {
@@ -61,12 +66,11 @@ const Skills: React.FC = () => {
       icon: Cpu,
       color: "from-indigo-500 to-blue-500",
       skills: [
+        { name: "PostgreSQL", level: 90 },
         { name: "MySQL", level: 90 },
+        { name: "Redis", level: 85 },
         { name: "MongoDB", level: 80 },
-        { name: "AWS DynamoDB", level: 85 },
-        { name: "AWS RDS", level: 85 },
-        { name: "PhpMyAdmin (Tool)", level: 90 },
-        { name: "MongoDB Compass (Tool)", level: 80 },
+        { name: "Firebase", level: 75 },
       ],
     },
     {
@@ -74,72 +78,45 @@ const Skills: React.FC = () => {
       icon: Zap,
       color: "from-yellow-500 to-orange-500",
       skills: [
+        { name: "Cloudflare", level: 98 },
         { name: "Git/GitHub", level: 90 },
         { name: "Postman", level: 95 },
         { name: "VS Code", level: 95 },
-        { name: "Cloudflare", level: 85 },
-        { name: "n8n", level: 80 },
-        { name: "Kubernetes", level: 70 },
+        { name: "Automation Scripts", level: 85 },
       ],
     },
-  ];
-
-  const additionalTech = [
-    // Payment Gateways
-    "Razorpay", "Stripe", "PayPal",
-
-    // AWS Services
-    "S3", "RDS", "DynamoDB", "EC2", "Lambda", "CloudFront",
-
-    // Cloudflare Services
-    "Cloudflare R2", "Cloudflare CDN", "Cloudflare Workers",
-    "Cloudflare Pages", "Cloudflare DNS", "Cloudflare SSL",
-
-    // APIs & Integrations
-    "Google Calendar API", "Tailro API", "Telegram Bots",
-
-    // Security & Networking
-    "SSL/TLS", "JWT Authentication", "DNS/IP Management",
-    "Load Balancing", "Firewalls",
-
-    // Development Tools
-    "Bootstrap", "React", "Nginx", "BeautifulSoup",
-
-    // Automation & Workflow
-    "n8n", "Pyrogram", "Python Automation",
-
-    // Version Control & CI/CD
-    "Git", "GitHub", "GitLab", "CI/CD Pipelines",
-
-    // Other Technologies
-    "Agile Development", "SaaS Lifecycle", "End-to-End Development",
-    "MVP Launch", "Backend Architecture", "RESTful API",
-    "B2B Automation", "Scalable Web Architecture", "Load Balancing",
-    "Caching", "Database Optimization", "Data Security", "Encryption",
-    "Hashing", "Kubernetes (Basic)", "cPanel", "Server Management"
   ];
 
   const toolsAndTechnologies = [
     {
       category: "Development Tools",
-      items: ["Visual Studio Code", "Postman", "Git", "GitHub", "GitLab"]
+      items: ["Visual Studio Code", "Postman", "Git", "GitHub", "GitLab"],
     },
     {
       category: "Database Tools",
-      items: ["PhpMyAdmin", "MongoDB Compass", "MySQL Workbench"]
+      items: ["PG Admin", "MongoDB Compass", "MySQL Workbench"],
     },
     {
       category: "Server & Deployment",
-      items: ["Docker", "AWS EC2", "GCP", "DigitalOcean", "Heroku", "Render", "Koyeb"]
+      items: [
+        "Docker",
+        "Artifact Registry",
+        "Cloud Run",
+        "Cloud SQL",
+        "Cloudflare",
+        "AWS EC2",
+        "DigitalOcean",
+        "Heroku",
+      ],
     },
     {
       category: "AI Dev Tools",
-      items: ["LangChain", "OpenAI Platform", "Tailro AI Agent", "HuggingFace"]
+      items: ["MCP Tools", "LangChain", "LangGraph", "Custom AI Agents"],
     },
     {
       category: "Workflow Automation",
-      items: ["n8n", "Python Scripts", "Telegram Bots", "Web Scraping"]
-    }
+      items: ["n8n", "Python Scripts", "Telegram Bots", "Web Scraping"],
+    },
   ];
 
   return (
@@ -307,7 +284,10 @@ const Skills: React.FC = () => {
                       key={tool}
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 + toolIndex * 0.05 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.1 + toolIndex * 0.05,
+                      }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.05 }}
                       className="px-3 py-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-600 dark:text-cyan-400 text-sm font-medium"
@@ -317,48 +297,6 @@ const Skills: React.FC = () => {
                   ))}
                 </div>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Additional Technologies */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">
-            Additional Technologies
-          </h3>
-
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
-            {additionalTech.map((tech, index) => (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -3,
-                }}
-                className="group px-3 sm:px-4 py-2 sm:py-2.5 bg-gradient-to-r from-white/50 to-gray-50/50 dark:from-white/5 dark:to-gray-800/50 
-                          backdrop-blur-sm rounded-xl text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium
-                          border border-white/20 dark:border-white/10 hover:border-cyan-500/30 
-                          hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300 cursor-default
-                          shadow-sm"
-              >
-                <motion.span className="relative" whileHover={{ scale: 1.02 }}>
-                  {tech}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-cyan-400/5 to-purple-400/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    layoutId={`tech-bg-${index}`}
-                  />
-                </motion.span>
-              </motion.span>
             ))}
           </div>
         </motion.div>

@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
         "service_9el7qqg",
         "template_xcd1e47",
         formRef.current,
-        "AMGjZ9rCDRtoJ7HYc"
+        "AMGjZ9rCDRtoJ7HYc",
       );
 
       if (result.text === "OK") {
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
       } else {
         throw new Error("Failed to send message");
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: "error",
         message:
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -246,7 +246,7 @@ const Contact: React.FC = () => {
                       </div>
                     </div>
                   </motion.div>
-                )
+                ),
               )}
             </div>
 

@@ -1,24 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Users, Clock, Target, Sparkles, Code, Brain, Cloud, Globe, Heart, Users2, Zap } from 'lucide-react';
+import { Target, Sparkles, Code, Brain, Cloud, Globe, Heart, Users2, Zap } from 'lucide-react';
 
 const About: React.FC = () => {
-  const stats = [
-    { icon: Clock, value: '3+', label: 'Years Experience', color: 'from-blue-500 to-cyan-500' },
-    { icon: Target, value: '15+', label: 'Projects Completed', color: 'from-purple-500 to-pink-500' },
-    { icon: Users, value: '100%', label: 'Client Satisfaction', color: 'from-green-500 to-emerald-500' },
-    { icon: Award, value: '5+', label: 'Certifications', color: 'from-orange-500 to-red-500' },
-  ];
 
   const highlights = [
-    { icon: Brain, title: 'AI Integration', desc: 'LangChain, OpenAI GPT-4, Custom AI Agents' },
-    { icon: Cloud, title: 'Cloud Architecture', desc: 'AWS, GCP, DigitalOcean, Scalable Deployments' },
-    { icon: Code, title: 'Full-Stack', desc: 'React, Flask, Node.js, Multi-tenant Systems' },
+    { icon: Brain, title: 'AI Integration', desc: 'MCP Tools, LangChain, Custom AI Agents' },
+    { icon: Cloud, title: 'Cloud Architecture', desc: 'GCP, AWS, DigitalOcean, Scalable Deployments' },
+    { icon: Code, title: 'Full-Stack', desc: 'Next.js, React, GO, Python, Node.js, Multi-tenant Systems' },
     { icon: Sparkles, title: 'Innovation', desc: 'SaaS Platforms, Automation, Modern Solutions' },
   ];
 
   const softSkills = [
-    { icon: Users2, title: 'Team Collaboration & Leadership', desc: 'Managing freelance projects with multiple stakeholders' },
+    { icon: Users2, title: 'Team Collaboration & Leadership', desc: 'Managing multiple projects across different domains' },
     { icon: Zap, title: 'Problem-Solving & Debugging', desc: 'Strong ability to troubleshoot and resolve issues efficiently' },
     { icon: Target, title: 'Project Management', desc: 'Successfully handled and delivered full-stack projects on schedule' },
     { icon: Heart, title: 'Client Communication', desc: 'Understanding client needs and ensuring satisfaction' },
@@ -227,47 +221,6 @@ const About: React.FC = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16 md:mb-20"
-        >
-          {stats.map(({ icon: Icon, value, label, color }, index) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -10 }}
-              className="relative group"
-            >
-              <div className="p-4 sm:p-6 md:p-8 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl md:rounded-3xl border border-white/20 dark:border-white/10 hover:border-cyan-500/30 transition-all duration-300 text-center">
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-r ${color} rounded-xl sm:rounded-2xl flex items-center justify-center`}
-                >
-                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
-                </motion.div>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2"
-                >
-                  {value}
-                </motion.div>
-                <div className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium">{label}</div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* Soft Skills Section */}
         <motion.div
